@@ -37,7 +37,8 @@ module OmniAuth
         opts = {
           name:           name,
           scope:          scope,
-          client_options: client_options
+          client_options: client_options,
+          prompt:         prompt
         }
 
         other_options = option_keys
@@ -101,6 +102,10 @@ module OmniAuth
 
       def scope
         config?(:scope) || [:openid, :email, :profile]
+      end
+
+      def prompt
+        config?(:prompt) || [:login]
       end
 
       ##
